@@ -1,0 +1,14 @@
+{
+  "name": "better-pumpjacks",
+  "version": "1.0.0",
+  "title": "Better Pumpjacks",
+  "author": "Mallinoff",
+  "factorio_version": "2.0",
+  "dependencies": [
+  "base >= 2.0",
+  "? space-exploration >= 0.7",
+  "? space-age",
+  "? Krastorio2"
+],
+  "description": "Adds Pumpjack MK2 and MK3 with improved stats. Works with vanilla, Space Exploration, Space Age, and K2."
+}
