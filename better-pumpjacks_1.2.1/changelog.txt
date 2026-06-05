@@ -1,0 +1,16 @@
+Version: 1.0.0
+Date: 2026-06-05
+
+  Features:
+    - Added Pumpjack MK2
+    - Added Pumpjack MK3
+    - Added Space Exploration support
+    - Added Space Age support
+    - Added K2 support
+
+Version: 1.2.1
+Date: 2026-06-05
+
+  Features:
+    - Added Productivity research specific to pumpjacks.
+    - Adjusted base productivity values.
