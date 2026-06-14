@@ -70,6 +70,12 @@ After changing research with console commands, run:
 
 This refreshes placed pumpjacks and prints the current pumpjack productivity level and bonus.
 
+To check the current pumpjack productivity level without refreshing pumpjacks, run:
+
+```text
+/bpj-level
+```
+
 Normal research does not need `/bpj-refresh`; the mod updates pumpjacks automatically when research completes.
 
 ## Compatibility Notes
@@ -87,4 +93,4 @@ Normal research does not need `/bpj-refresh`; the mod updates pumpjacks automati
 
 ## Version
 
-Current version: 1.4.0
+Current version: 1.4.1
