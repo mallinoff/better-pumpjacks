@@ -1,0 +1,50 @@
+Version: 1.0.0
+Date: 2026-06-05
+
+  Features:
+    - Added Pumpjack MK2
+    - Added Pumpjack MK3
+    - Added Space Exploration support
+    - Added Space Age support
+    - Added K2 support
+
+Version: 1.2.1
+Date: 2026-06-05
+
+  Features:
+    - Added Productivity research specific to pumpjacks.
+    - Adjusted base productivity values.
+
+Version: 1.3.0
+Date: 2026-06-06
+  Features:
+    - Fixed MK3 research prerequisite order.
+    - Improved Space Age and Space Exploration science pack compatibility.
+    - Added proper Optimization Tech Card prerequisite support for SE/K2.
+    - Fixed Space Exploration postprocess changes affecting pumpjack productivity research costs.
+
+Version: 1.4.0
+Date: 2026-06-14
+  Features:
+    - Added configurable pumpjack energy usage settings.
+    - Added configurable pumpjack productivity research bonus setting.
+    - Added configurable pumpjack productivity research cost settings.
+    - Added configurable maximum pumpjack productivity level.
+    - Added optional productivity research support for vanilla pumpjacks.
+    - Updated pumpjack descriptions to reflect configured startup settings.
+    - Updated pumpjack technology descriptions to reflect configured startup settings.
+    - Added a chat message showing current pumpjack productivity after research completes.
+    - Fixed migration scan crash when hidden productivity entity prototypes do not exist.
+
+Version: 1.4.1
+Date: 2026-06-14
+  Bugfixes:
+    - HOTFIX: Added /bpj-level command to print the current pumpjack productivity level and bonus.
+    - HOTFIX: Fixed non-Space Exploration infinite productivity levels showing as level 0.
+    - HOTFIX: Fixed pumpjack productivity level display after the first research level.
+    - HOTFIX: Fixed staged productivity technologies counting one level too low.
+    - HOTFIX: Fixed staged infinite productivity technology levels being counted incorrectly.
+    - HOTFIX: Replaced research-time world scans with tracked pumpjack updates to reduce research-completion stutter.
+    - HOTFIX: Added fallback registry rebuilding when existing saves have no tracked pumpjacks yet.
+    - HOTFIX: Reduced pumpjack productivity replacement batch size to lower per-tick spikes.
+    - HOTFIX: Removed fixed researched productivity values from item tooltips; placed entities still show applied productivity.
