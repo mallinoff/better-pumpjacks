@@ -1,6 +1,10 @@
 # Better Pumpjacks
 
-Better Pumpjacks adds two upgraded pumpjack tiers and pumpjack-specific productivity research.
+Better Pumpjacks adds two upgraded pumpjack tiers, pumpjack-specific productivity research, and a dashboard for monitoring oil field output.
+
+## Version
+
+Current version: 1.5.0
 
 ## Features
 
@@ -11,6 +15,9 @@ Better Pumpjacks adds two upgraded pumpjack tiers and pumpjack-specific producti
 - Supports configurable productivity research bonus, max applied level, and research cost formula.
 - Optionally applies pumpjack productivity research to vanilla pumpjacks.
 - Updates pumpjack and technology descriptions from configured startup settings.
+- Adds a dashboard showing per-surface fluid/s estimates, pumpjack counts, average yield, and low-output warnings.
+- Supports upgrade planner and Q-key ghost placement for all pumpjack tiers.
+- Exposes dashboard stats and output thresholds via remote interface for other mods.
 
 ## Pumpjack Tiers
 
@@ -32,7 +39,49 @@ Default values:
 - Research cost formula: `1000 + (L * 1000)`.
 - Vanilla pumpjacks affected: disabled by default.
 
-Because this uses custom hidden variants, the bonus does not appear in Factorio's standard bonus list.
+Because this uses custom hidden variants, the bonus does not appear in Factorio's standard bonus list. Placed pumpjacks show the correct combined productivity in their tooltip; items in inventory show only the base tier productivity.
+
+## Dashboard
+
+Open the dashboard with the toolbar shortcut button or the keybind (default: none). The dashboard shows:
+
+- Current productivity level and total bonus.
+- Total fluid/s estimate and total pumpjack count across all visible surfaces.
+- Per-fluid breakdown with fluid/s, pumpjack counts by tier, and configurable low-output warning thresholds.
+- Per-surface breakdown with productivity, pumpjack counts by tier, average yield, and fluid/s.
+
+### Surface Manager
+
+Click **Manage** in the dashboard footer to open the surface visibility manager. From there you can show or hide individual surfaces from the dashboard and assign custom display names.
+
+### Low-Output Warnings
+
+Select a surface from the dashboard dropdown to configure per-fluid warning thresholds. When a fluid's estimated output falls below its threshold, a chat warning is printed. Warning repeat rate and scan interval are configurable in runtime settings.
+
+## Upgrade Planner & Ghost Placement
+
+All pumpjack tiers support the upgrade planner. Bots will automatically promote pumpjacks to the next tier when queued. Pressing Q on any placed pumpjack returns the correct item for ghost placement.
+
+## Remote Interface
+
+Other mods can read dashboard data via `remote.call`:
+
+```lua
+-- Get fluid/s stats for a force
+remote.call("better-pumpjacks", "get_output_stats", "player")
+
+-- Get all warning thresholds for a surface
+remote.call("better-pumpjacks", "get_output_thresholds", "player", "nauvis")
+
+-- Get a specific threshold
+remote.call("better-pumpjacks", "get_output_threshold", "player", "nauvis", "crude-oil")
+
+-- Check if a fluid is below its threshold
+remote.call("better-pumpjacks", "is_output_below_threshold", "player", "nauvis", "crude-oil")
+
+-- Get all tracked entity names
+remote.call("better-pumpjacks", "get_known_entity_names")
+```
 
 ## Startup Settings
 
@@ -88,9 +137,7 @@ Normal research does not need `/bpj-refresh`; the mod updates pumpjacks automati
 ## Known Limitations
 
 - Pumpjack productivity does not appear in Factorio's standard bonus list.
+- Item tooltips show only the tier's base productivity; placed pumpjack tooltips show the full combined value.
 - Entity replacement preserves health and modules, but may not preserve every possible state from other mods.
 - Circuit connections, fluidbox state, or external mod references may not survive replacement in every case.
-
-## Version
-
-Current version: 1.4.1
+- Modules that do not fit after replacement (e.g. due to a settings change reducing module slots) are spilled on the ground.
