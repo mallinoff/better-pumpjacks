@@ -1,0 +1,16 @@
+{
+  "name": "better-pumpjacks",
+  "version": "1.8.0",
+  "title": "Better Pumpjacks",
+  "thumbnail": "graphics/icons/thumbnail.png",
+  "author": "Mallinoff",
+  "factorio_version": "2.1",
+  "dependencies": [
+    "base >= 2.1",
+    "? space-exploration >= 0.7",
+    "(?) space-exploration-postprocess",
+    "? space-age",
+    "? Krastorio2"
+  ],
+  "description": "Adds Pumpjack MK2 and MK3, circuit-controlled extraction modes, dedicated productivity research, and a live fluid dashboard. Supports base Factorio, Space Age, and Space Exploration with Krastorio 2."
+}
